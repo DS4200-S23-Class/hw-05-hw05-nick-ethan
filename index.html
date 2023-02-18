@@ -21,7 +21,9 @@
         <div class="item" style="flex:40%">
             <p>Right Column</p>
 
-        
+
+<div id="my_dataviz"></div>
+
 <script>
 
 // set the dimensions and margins of the graph
@@ -38,7 +40,8 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-({
+//Read the data
+d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
@@ -69,6 +72,7 @@ var svg = d3.select("#my_dataviz")
 })
 
 </script>
+
 <script src="script.js"></script>
 
 </body>
