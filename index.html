@@ -43,33 +43,6 @@
         var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-        // Step 5
-        // Title
-        svg.append('text')
-        .attr('x', width/2 + 100)
-        .attr('y', 100)
-        .attr('text-anchor', 'middle')
-        .style('font-family', 'Helvetica')
-        .style('font-size', 20)
-        .text('Scatter Plot');
-        
-        // X label
-        svg.append('text')
-        .attr('x', width/2 + 100)
-        .attr('y', height - 15 + 150)
-        .attr('text-anchor', 'middle')
-        .style('font-family', 'Helvetica')
-        .style('font-size', 12)
-        .text('Independant');
-        
-        // Y label
-        svg.append('text')
-        .attr('text-anchor', 'middle')
-        .attr('transform', 'translate(60,' + height + ')rotate(-90)')
-        .style('font-family', 'Helvetica')
-        .style('font-size', 12)
-        .text('Dependant');
-
         // Step 6
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
