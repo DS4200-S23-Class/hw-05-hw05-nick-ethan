@@ -14,7 +14,7 @@
     <h1 class="centered">hw-05: Interactive Graph with D3</h1>
     <div class="box">
         <div class="item" style="flex:60%">
-            <div id="my_dataviz"></div>
+            <div id="scatter_plot"></div>
             <p>Left Column</p>
         </div>
         <div class="item" style="flex:40%">
@@ -31,7 +31,7 @@
         ];
 
         // Step 3
-        var svg = d3.select("svg"),
+        var svg = d3.select("#scatter_plot"),
             margin = 200,
             width = svg.attr("width") - margin, //300
             height = svg.attr("height") - margin //200
