@@ -14,7 +14,6 @@
     <h1 class="centered">hw-05: Interactive Graph with D3</h1>
     <div class="box">
         <div class="item" style="flex:60%">
-            <div id="svg"></div>
             <p>Left Column</p>
         </div>
         <div class="item" style="flex:40%">
@@ -31,7 +30,7 @@
         ];
 
         // Step 3
-        var svg = d3.select("#svg"),
+        var svg = d3.select("svg"),
             margin = 200,
             width = svg.attr("width") - margin, //300
             height = svg.attr("height") - margin //200
@@ -42,33 +41,6 @@
             
         var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
-
-        // Step 5
-        // Title
-        svg.append('text')
-        .attr('x', width/2 + 100)
-        .attr('y', 100)
-        .attr('text-anchor', 'middle')
-        .style('font-family', 'Helvetica')
-        .style('font-size', 20)
-        .text('Scatter Plot');
-        
-        // X label
-        svg.append('text')
-        .attr('x', width/2 + 100)
-        .attr('y', height - 15 + 150)
-        .attr('text-anchor', 'middle')
-        .style('font-family', 'Helvetica')
-        .style('font-size', 12)
-        .text('Independant');
-        
-        // Y label
-        svg.append('text')
-        .attr('text-anchor', 'middle')
-        .attr('transform', 'translate(60,' + height + ')rotate(-90)')
-        .style('font-family', 'Helvetica')
-        .style('font-size', 12)
-        .text('Dependant');
 
         // Step 6
         g.append("g")
