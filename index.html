@@ -31,13 +31,13 @@
 
         // Step 3
         var svg = d3.select("svg"),
-            margin = 200,
+            margin = 10,
             width = svg.attr("width") - margin, //300
             height = svg.attr("height") - margin //200
 
         // Step 4 
-        var xScale = d3.scaleLinear().domain([0, 100]).range([0, width]),
-            yScale = d3.scaleLinear().domain([0, 200]).range([height, 0]);
+        var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]),
+            yScale = d3.scaleLinear().domain([0, 10]).range([height, 0]);
             
         var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
