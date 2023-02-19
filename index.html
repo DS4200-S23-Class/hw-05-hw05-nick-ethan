@@ -23,11 +23,8 @@
 <svg width="500" height="500"></svg>
 <script>
         // Step 1
-        var dataset1 = [
-        [90, 20], [20, 100], [66, 44],
-        [53, 80], [24, 182], [80, 72],
-        [10, 76], [33, 150], [100, 15]
-        ];
+        d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan/master/data/scatter-data.csv", function(data) {
+
 
         // Step 3
         var svg = d3.select("svg"),
@@ -61,7 +58,9 @@
         .attr("r", 2)
         .attr("transform", "translate(" + 100 + "," + 100 + ")")
         .style("fill", "#CC0000");
-  
+            
+            
+)}
 </script>
 
 <script src="script.js"></script>
