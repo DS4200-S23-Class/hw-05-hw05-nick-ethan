@@ -14,47 +14,45 @@
     <h1 class="centered">hw-05: Interactive Graph with D3</h1>
     <div class="box">
         <div class="item" style="flex:60%">
-            <p>Left Column</p>
 
+            <svg width="500" height="500"></svg>
+            <script>
+                    // Step 1
 
-<svg width="500" height="500"></svg>
-<script>
-        // Step 1
+                    // Step 3
+                    var svg = d3.select("svg"),
+                        margin = 200,
+                        width = svg.attr("width") - margin, //300
+                        height = svg.attr("height") - margin //200
 
-        // Step 3
-        var svg = d3.select("svg"),
-            margin = 200,
-            width = svg.attr("width") - margin, //300
-            height = svg.attr("height") - margin //200
+                    // Step 4 
+                    var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]),
+                        yScale = d3.scaleLinear().domain([0, 10]).range([height, 0]);
 
-        // Step 4 
-        var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]),
-            yScale = d3.scaleLinear().domain([0, 10]).range([height, 0]);
-            
-        var g = svg.append("g")
-            .attr("transform", "translate(" + 100 + "," + 100 + ")");
+                    var g = svg.append("g")
+                        .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-        // Step 6
-        g.append("g")
-         .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(xScale));
-        
-        g.append("g")
-         .call(d3.axisLeft(yScale));
-        
-        // Step 7
-        svg.append('g')
-        .selectAll("dot")
-        .data(dataset1)
-        .enter()
-        .append("circle")
-        .attr("cx", function (d) { return xScale(d[0]); } )
-        .attr("cy", function (d) { return yScale(d[1]); } )
-        .attr("r", 2)
-        .attr("transform", "translate(" + 100 + "," + 100 + ")")
-        .style("fill", "#CC0000");
-            
-</script>
+                    // Step 6
+                    g.append("g")
+                     .attr("transform", "translate(0," + height + ")")
+                     .call(d3.axisBottom(xScale));
+
+                    g.append("g")
+                     .call(d3.axisLeft(yScale));
+
+                    // Step 7
+                    svg.append('g')
+                    .selectAll("dot")
+                    .data(dataset1)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function (d) { return xScale(d[0]); } )
+                    .attr("cy", function (d) { return yScale(d[1]); } )
+                    .attr("r", 2)
+                    .attr("transform", "translate(" + 100 + "," + 100 + ")")
+                    .style("fill", "#CC0000");
+
+            </script>
 
         </div>
         <div class="item" style="flex:40%">
