@@ -94,23 +94,7 @@ var yy = d3.scaleLinear()
   .range([ height, 0]);
 svg2.append("g")
   .call(d3.axisLeft(yy));
-
-svg2.selectAll("mybar")
-  .data(bardata)
-  .enter()
-  .append("rect")
-    .attr("x", function(d) { return xx(d.category); })
-    .attr("y", function(d) { return yy(d.amount); })
-    .attr("width", xx.bandwidth())
-    .attr("height", function(d) { return height - yy(d.amount); })
-    .attr("fill", "blue")
-
     
-var tooltip = d3.select("#my_bar_dataviz")
-  .append("div")
-  .style("opacity", 0)
-  .attr("class", "tooltip");
-
 var tooltip = d3.select("#my_bar_dataviz")
   .append("div")
   .style("opacity", 0)
