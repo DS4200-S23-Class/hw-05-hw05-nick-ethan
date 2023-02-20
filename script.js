@@ -1,5 +1,3 @@
-
-<style>
   .tooltip {
     position: absolute;
     z-index: 1;
@@ -78,5 +76,3 @@
               .style("display", "none");
           });
     });
-</script>
-
