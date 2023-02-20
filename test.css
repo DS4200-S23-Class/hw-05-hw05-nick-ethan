@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html> 
+
+<head>
+    <meta charset=utf-8/>
+    <link rel="stylesheet" href="style.css">
+    <script src='js/d3.v6.1.1/d3.min.js'></script>
+    <title>hw-05</title>
+</head>
+
+
+<body>
+        
+    <h1 class="centered">hw-05: Interactive Graph with D3</h1>
+    <div class="box">
+        <div class="item" style="flex:60%">
+            <div id="my_dataviz"></div>
+
+
+            <script>
+
+            // set the dimensions and margins of the graph
+            var margin = {top: 10, right: 30, bottom: 30, left: 60},
+                width = 460 - margin.left - margin.right,
+                height = 400 - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            var svg = d3.select("#my_dataviz")
+              .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+                .attr("transform",
+                      "translate(" + margin.left + "," + margin.top + ")");
+
+            //Read the data
+            d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan/master/data/scatter-data.csv", function(data) {
+
+              // Add X axis
+              var x = d3.scaleLinear()
+                .domain([0, 10])
+                .range([ 0, width ]);
+              svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+              // Add Y axis
+              var y = d3.scaleLinear()
+                .domain([0, 10])
+                .range([ height, 0]);
+              svg.append("g")
+                .call(d3.axisLeft(y));
+
+              // Add dots
+              svg.append('g')
+                .selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                  .attr("cx", function (d) { return x(d.x); } )
+                  .attr("cy", function (d) { return y(d.y); } )
+                  .attr("r", 15)
+                  .style("fill", "#69b3a2")
+
+            })
+
+            </script>
+
+        </div>
+        <div class="item" style="flex:40%">
+            <p>Right Column</p>
+        </div>
+    </div>
+    
+<h2 class="centered">Acknowledgements</h2>
+    <div>
+        <li>educative.io (https://www.educative.io/answers/how-to-create-a-scatter-plot-using-d3)</li>
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
