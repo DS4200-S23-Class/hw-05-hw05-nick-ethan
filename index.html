@@ -37,7 +37,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([0, 4000])
+    .domain([0, 10])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -45,7 +45,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 500000])
+    .domain([0, 10])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -59,7 +59,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
       .attr("cx", function (d) { return x(d.GrLivArea); } )
       .attr("cy", function (d) { return y(d.SalePrice); } )
       .attr("r", 1.5)
-      .style("fill", "#69b3a2")
+      .style("fill", "#blue")
 
 })
 
