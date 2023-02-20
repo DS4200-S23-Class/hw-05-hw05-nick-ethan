@@ -64,7 +64,35 @@ d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan
             
         </div>
         <div class="item" style="flex:40%">
-            <p>Right Column</p>
+            <p>Select the x coordinate for the point you want to add. 
+                <select id="xdropdown" size=1>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+            </p>
+            <p>Select the y coordinate for the point you want to add. 
+                <select id="ydropdown" size=1>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+            </p>
+            <p>
+                <button id="add" type="button" onclick="plot()">Add point</button>
+            </p>
         </div>
     </div>
     
