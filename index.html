@@ -17,16 +17,11 @@
 
             <svg width="500" height="500"></svg>
             <script>
-                        var dataset1 = [
-                            [9, 2], [2, 10], [6, 4],
-                            [5, 8], [2, 1], [8, 7],
-                            [1, 7], [3, 1], [1, 2]
-                            ];
                         
                         var svg = d3.select("svg"),
                             margin = 200,
-                            width = svg.attr("width") - margin, //300
-                            height = svg.attr("height") - margin //200
+                            width = svg.attr("width") - margin,
+                            height = svg.attr("height") - margin
 
                         var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]),
                             yScale = d3.scaleLinear().domain([0, 10]).range([height, 0]);
