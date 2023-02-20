@@ -106,24 +106,6 @@ svg2.selectAll("mybar")
     .attr("height", function(d) { return height - yy(d.amount); })
     .attr("fill", "blue")
 
-var tooltip = d3.select("my_bar_data_viz")
-    .append("div")
-    .style("position", "absolute")
-    .style("z-index", "10")
-    .style("visibility", "hidden")
-    .style("background", "#000")
-    .text("a simple tooltip");
-
-d3.select("my_bar_data_viz")
-  .selectAll("div")
-    .data(data)
-  .enter().append("div")
-    .style("width", function(d) { return x(d) + "px"; })
-    .text(function(d) { return d; })
-    .on("mouseover", function(d){tooltip.text(d); return tooltip.style("visibility", "visible");})
-      .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
 })
 
 </script>
