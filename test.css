@@ -1,4 +1,4 @@
-
+<script>
 var svg2 = d3.select("#my_bar_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -25,28 +25,7 @@ var yy = d3.scaleLinear()
   .range([ height, 0]);
 svg2.append("g")
   .call(d3.axisLeft(yy));
-
-svg2.selectAll("mybar")
-  .data(bardata)
-  .enter()
-  .append("rect")
-    .attr("x", function(d) { return xx(d.category); })
-    .attr("y", function(d) { return yy(d.amount); })
-    .attr("width", xx.bandwidth())
-    .attr("height", function(d) { return height - yy(d.amount); })
-    .attr("fill", "blue")
-
     
-// Create the tooltip
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Value:</strong> <span style='color:white'>" + d.amount + "</span>";
-  })
-
-// Call the tooltip
-svg2.call(tip);
 
 svg2.selectAll("mybar")
   .data(bardata)
@@ -57,7 +36,26 @@ svg2.selectAll("mybar")
     .attr("width", xx.bandwidth())
     .attr("height", function(d) { return height - yy(d.amount); })
     .attr("fill", "blue")
-    .on('mouseover', tip.show) // show the tooltip on mouseover
-    .on('mouseout', tip.hide); // hide the tooltip on mouseout
+    .on("mousemove", function(d) {
+      d3.select(this)
+        .attr("title", d.amount)
+        .style("cursor", "pointer")
+        .style("opacity", 0.8);
+      d3.select("#tooltip")
+        .style("left", d3.event.pageX + "px")
+        .style("top", d3.event.pageY + "px")
+        .html("Value: " + d.amount);
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+        .attr("title", d.amount)
+        .style("cursor", "default")
+        .style("opacity", 1);
+      d3.select("#tooltip")
+        .style("left", "-9999px")
+        .style("top", "-9999px");
+    });
+    
 })
-    
+
+</script>
