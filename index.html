@@ -15,20 +15,20 @@
     <div class="box">
         <div class="item" style="flex:60%">
 
-            <svg width="500" height="400"></svg>
+            <svg width="500" height="500"></svg>
 <script>
         var dataset1 = [
-        [90, 20], [20, 100], [66, 44],
+        [9, 2], [5, 7], [6, 4],
         ];
 
         var svg = d3.select("svg"),
             margin = 200,
-            width = svg.attr("width") - margin, //300
-            height = svg.attr("height") - margin //200
+            width = svg.attr("width") - margin,
+            height = svg.attr("height") - margin
 
         // Step 4 
-        var xScale = d3.scaleLinear().domain([0, 100]).range([0, width]),
-            yScale = d3.scaleLinear().domain([0, 200]).range([height, 0]);
+        var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]),
+            yScale = d3.scaleLinear().domain([0, 10]).range([height, 0]);
             
         var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
@@ -49,7 +49,7 @@
         .attr("cy", function (d) { return yScale(d[1]); } )
         .attr("r", 2)
         .attr("transform", "translate(" + 100 + "," + 100 + ")")
-        .style("fill", "red");
+        .style("fill", "blue");
   
 </script>
 
