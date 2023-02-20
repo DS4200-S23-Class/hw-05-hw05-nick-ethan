@@ -59,6 +59,26 @@ d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan
       .style("fill", "blue")
       .attr("onclick", "var selectedCircle = d3.select(this); if (selectedCircle.attr('stroke') == 'black') { selectedCircle.attr('stroke', null).attr('stroke-width', null); } else { selectedCircle.attr('stroke', 'black').attr('stroke-width', 7); }");
 
+  var xDropdown = d3.select("#x-dropdown");
+  var yDropdown = d3.select("#y-dropdown");
+  var addButton = d3.select("#add-button");
+
+  addButton.on("click", function() {
+    var xValue = xDropdown.property("value");
+    var yValue = yDropdown.property("value");
+
+    var newData = {x: xValue, y: yValue};
+
+    circles.data(circles.data().concat(newData))
+      .enter()
+      .append("circle")
+        .attr("cx", function (d) { return x(d.x); } )
+        .attr("cy", function (d) { return y(d.y); } )
+        .attr("r", 15)
+        .style("fill", "blue")
+        .attr("onclick", "var selectedCircle = d3.select(this); if (selectedCircle.attr('stroke') == 'black') { selectedCircle.attr('stroke', null).attr('stroke-width', null); } else { selectedCircle.attr('stroke', 'black').attr('stroke-width', 7); }");
+  });
+    
 })
 
 </script>
