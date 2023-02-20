@@ -1,7 +1,3 @@
-<div id="my_bar_dataviz">
-  <svg id="bar-chart"></svg>
-  <div id="tooltip" class="tooltip"></div>
-</div>
 
 <style>
   .tooltip {
