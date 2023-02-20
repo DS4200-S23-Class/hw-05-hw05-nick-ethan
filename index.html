@@ -17,9 +17,11 @@
 
             <svg width="500" height="500"></svg>
             <script>
-                     var dataset;
-                d3.csv("scatter-data.csv", function(error, data) {
-                    dataset = data.map(function(data) { return [ +data["t"], +data["Or"] ]; });
+                        var dataset1 = [
+                            [9, 2], [2, 10], [6, 4],
+                            [5, 8], [2, 1], [8, 7],
+                            [1, 7], [3, 1], [1, 2]
+                            ];
                         
                         var svg = d3.select("svg"),
                             margin = 200,
@@ -41,7 +43,7 @@
 
                         svg.append('g')
                         .selectAll("dot")
-                        .data(dataset)
+                        .data(data)
                         .enter()
                         .append("circle")
                         .attr("cx", function (d) { return xScale(d[0]); } )
