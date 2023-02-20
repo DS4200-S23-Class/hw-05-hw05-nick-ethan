@@ -17,9 +17,6 @@
 
             <svg width="500" height="500"></svg>
             <script>
-                    // Step 1
-
-                    // Step 3
                     d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan/master/data/scatter-data.csv", function(data) {
 
                         var svg = d3.select("svg"),
@@ -27,14 +24,12 @@
                             width = svg.attr("width") - margin, //300
                             height = svg.attr("height") - margin //200
 
-                        // Step 4 
                         var xScale = d3.scaleLinear().domain([0, 10]).range([0, width]),
                             yScale = d3.scaleLinear().domain([0, 10]).range([height, 0]);
 
                         var g = svg.append("g")
                             .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-                        // Step 6
                         g.append("g")
                          .attr("transform", "translate(0," + height + ")")
                          .call(d3.axisBottom(xScale));
@@ -42,10 +37,9 @@
                         g.append("g")
                          .call(d3.axisLeft(yScale));
 
-                        // Step 7
                         svg.append('g')
                         .selectAll("dot")
-                        .data(dataset1)
+                        .data(data)
                         .enter()
                         .append("circle")
                         .attr("cx", function (d) { return xScale(d[0]); } )
