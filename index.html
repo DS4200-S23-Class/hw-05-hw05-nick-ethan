@@ -56,6 +56,7 @@ d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan
       .attr("cx", function (d) { return x(d.x); } )
       .attr("cy", function (d) { return y(d.y); } )
       .attr("r", 15)
+      .attr("onclick", "alert('You have clicked the circle.')")
       .style("fill", "blue")
 
 })
