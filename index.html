@@ -17,7 +17,7 @@
 
             <svg width="500" height="500"></svg>
 <script>
-        d3.csv("/data/employees.csv", function(data) {
+        d3.csv("/data/scatter-data.csv", function(data) {
             console.log(data);
 
         var svg = d3.select("svg"),
@@ -41,7 +41,7 @@
         
         svg.append('g')
         .selectAll("dot")
-        .data(dataset1)
+        .data(data)
         .enter()
         .append("circle")
         .attr("cx", function (d) { return xScale(d[0]); } )
