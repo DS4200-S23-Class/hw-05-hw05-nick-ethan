@@ -20,9 +20,9 @@ function plot() {
 	
 }
 
-function highlight(point_id) {
-      document.getElementById(point_id).classList.toggle('highlight');
-      document.getElementById("recent").innerHTML = point_id;
+function highlight(point) {
+      document.getElementById(point).classList.toggle('highlight');
+      document.getElementById("recent").innerHTML = point;
   }
 
 
