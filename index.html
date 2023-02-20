@@ -95,10 +95,6 @@ var yy = d3.scaleLinear()
 svg2.append("g")
   .call(d3.axisLeft(yy));
     
-var tooltip = d3.select("#my_bar_dataviz")
-  .append("div")
-  .style("opacity", 0)
-  .attr("class", "tooltip");
 
 svg2.selectAll("mybar")
   .data(bardata)
@@ -109,18 +105,24 @@ svg2.selectAll("mybar")
     .attr("width", xx.bandwidth())
     .attr("height", function(d) { return height - yy(d.amount); })
     .attr("fill", "blue")
-    .on("mouseover", function(d) {
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", .9);
-      tooltip.html("Value: " + d.amount)
-        .style("left", (d3.event.pageX) + "px")
-        .style("top", (d3.event.pageY - 28) + "px");
+    .on("mousemove", function(d) {
+      d3.select(this)
+        .attr("title", d.amount)
+        .style("cursor", "pointer")
+        .style("opacity", 0.8);
+      d3.select("#tooltip")
+        .style("left", d3.event.pageX + "px")
+        .style("top", d3.event.pageY + "px")
+        .html("Value: " + d.amount);
     })
     .on("mouseout", function(d) {
-      tooltip.transition()
-        .duration(500)
-        .style("opacity", 0);
+      d3.select(this)
+        .attr("title", d.amount)
+        .style("cursor", "default")
+        .style("opacity", 1);
+      d3.select("#tooltip")
+        .style("left", "-9999px")
+        .style("top", "-9999px");
     });
     
 })
