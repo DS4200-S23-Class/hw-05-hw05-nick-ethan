@@ -106,16 +106,15 @@ svg2.selectAll("mybar")
     .attr("fill", "blue")
 
     
-// Create the tooltip
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Value:</strong> <span style='color:white'>" + d.amount + "</span>";
-  })
+var tooltip = d3.select("#my_bar_dataviz")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip");
 
-// Call the tooltip
-svg2.call(tip);
+var tooltip = d3.select("#my_bar_dataviz")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip");
 
 svg2.selectAll("mybar")
   .data(bardata)
@@ -126,10 +125,20 @@ svg2.selectAll("mybar")
     .attr("width", xx.bandwidth())
     .attr("height", function(d) { return height - yy(d.amount); })
     .attr("fill", "blue")
-    .on('mouseover', tip.show) // show the tooltip on mouseover
-    .on('mouseout', tip.hide); // hide the tooltip on mouseout
+    .on("mouseover", function(d) {
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html("Value: " + d.amount)
+        .style("left", (d3.event.pageX) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
+    })
+    .on("mouseout", function(d) {
+      tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
+    });
 })
-
 
 </script>
             
