@@ -50,7 +50,7 @@ d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan
 
   svg.append('g')
     .selectAll("point")
-    .data(newData)
+    .data(data)
     .enter()
     .append("circle")
       .attr("cx", function (d) { return x(d.x); } )
@@ -59,7 +59,6 @@ d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan
       .style("fill", "blue")
       .attr("onclick", "var selectedCircle = d3.select(this); if (selectedCircle.attr('stroke') == 'black') { selectedCircle.attr('stroke', null).attr('stroke-width', null); } else { selectedCircle.attr('stroke', 'black').attr('stroke-width', 7); }");
 
-    
 })
 
 </script>
