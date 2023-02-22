@@ -26,12 +26,3 @@ li {
     flex-direction:column;
     justify-content: top;
 }
-
-.stroke-blue {
-  stroke: blue;
-}
-
-.stroke-black {
-  stroke: black;
-}
-
