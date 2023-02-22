@@ -164,15 +164,18 @@ svg2.selectAll("mybar")
     .attr("width", xx.bandwidth())
     .attr("height", function(d) { return height - yy(d.amount); })
     .attr("fill", "blue")
+    
     .on("mousemove", function(d) {
       d3.select(this)
-        .attr("title", d.amount)
-        .style("cursor", "pointer")
-        .style("opacity", 0.8);
+          .attr("title", d.amount)
+          .style("cursor", "pointer")
+          .style("opacity", 0.8);
       d3.select("#tooltip")
         .style("left", d3.event.pageX + "px")
         .style("top", d3.event.pageY + "px")
-        .html("Value: " + d.amount);
+        .html("Category: " + d.category + "<br/>Value: " + d.amount);
+
+
     })
     .on("mouseout", function(d) {
       d3.select(this)
