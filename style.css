@@ -26,11 +26,3 @@ li {
     flex-direction:column;
     justify-content: top;
 }
-
-.tooltip {
-  position: absolute;
-  padding: 5px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  pointer-events: none;
-}
