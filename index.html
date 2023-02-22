@@ -16,6 +16,13 @@
     <div class="box">
         <div class="item" style="flex:60%">
             <div id="my_dataviz"></div>
+              d3.select("#my_dataviz")
+            .append("circle")
+            .attr("cx", xValue * 50)
+            .attr("cy", yValue * 50)
+            .attr("r", 10)
+            .style("fill", "red");
+}
             <div id="my_bar_dataviz"></div>
             <div id="tooltip"></div>
             
