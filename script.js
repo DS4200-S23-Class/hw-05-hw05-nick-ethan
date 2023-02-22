@@ -1,12 +1,22 @@
 function plot() {
-  // get the x and y values from the dropdown menus
-  var xValue = parseInt(document.getElementById("xdropdown").value);
-  var yValue = parseInt(document.getElementById("ydropdown").value);
+  var xcoord = parseInt(document.getElementById("xdropdown").value);
+  var ycoord = parseInt(document.getElementById("ydropdown").value);
+
+  // Create a new point object with the x and y coordinates
+  var newPoint = {x: xcoord, y: ycoord};
+
+  // Add the new point to the data array
+  data.push(newPoint);
+
+  // Redraw the visualization with the new data
   var svg = d3.select("#my_dataviz");
-  svg.append("circle")
-    .attr("cx", x * 50) // assuming a scale of 50 units per x/y value
-    .attr("cy", y * 50)
+  svg.selectAll("*").remove();
+  var circles = svg.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("cx", function(d) { return xScale(d.x); })
+    .attr("cy", function(d) { return yScale(d.y); })
     .attr("r", 5)
-    .style("fill", "red")
-    .style("stroke", "black");
+    .attr("fill", "red");
 }
