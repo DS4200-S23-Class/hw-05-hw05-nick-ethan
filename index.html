@@ -83,15 +83,6 @@ d3.csv("https://raw.githubusercontent.com/DS4200-S23-Class/hw-05-hw05-nick-ethan
       } else {
           coords.text("(" + d.x + ", " + d.y + ")");
       }
-      
-      var svg = d3.select("#my_dataviz");
-      svg.append("circle")
-          .attr("cx", x * 50) // assuming a scale of 50 units per x/y value
-          .attr("cy", y * 50)
-          .attr("r", 5)
-          .style("fill", "red")
-          .style("stroke", "black");
-}
   });
 })
 
